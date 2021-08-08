@@ -1,0 +1,65 @@
+<div class="filter">
+    <p>Search by</p>
+    <mat-form-field appearance="outline">
+        <mat-label>Origin</mat-label>
+        <input matInput type="text" placeholder="Origin" [(ngModel)]="filterByCopy.origin"
+            (ngModelChange)="onFilter.emit(filterByCopy)">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Destination</mat-label>
+        <input matInput type="text" placeholder="Destination" [(ngModel)]="filterByCopy.destination"
+            (ngModelChange)="onFilter.emit(filterByCopy)">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Min price</mat-label>
+        <input matInput type="number" placeholder="Min price" [(ngModel)]="filterByCopy.minPrice"
+            (ngModelChange)="onFilter.emit(filterByCopy)">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Max price</mat-label>
+        <input matInput type="number" placeholder="Max price" [(ngModel)]="filterByCopy.maxPrice"
+            (ngModelChange)="onFilter.emit(filterByCopy)">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Stops</mat-label>
+        <mat-select [(ngModel)]="filterByCopy.connections" (ngModelChange)="onFilter.emit(filterByCopy)">
+            <mat-option value="all">All</mat-option>
+            <mat-option value="0">Non-stop</mat-option>
+            <mat-option value="1">1 stop</mat-option>
+            <mat-option value="2">2+ stops</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!-- <label for="connections">Stops</label>
+    <select name="connections" id="connections" [(ngModel)]="filterByCopy.connections"
+        (ngModelChange)="onFilter.emit(filterByCopy)">
+        <option selected value="all">All</option>
+        <option value="0">Non-stop</option>
+        <option value="1">1 stop</option>
+        <option value="2">2+ stops</option>
+    </select> -->
+
+    <!-- <input type="date" name="" id="" [(ngModel)]="filterByCopy.fromDate"
+        (ngModelChange)="onFilter.emit(filterByCopy)">
+        <input type="date" name="" id="" [(ngModel)]="filterByCopy.toDate"
+        (ngModelChange)="onFilter.emit(filterByCopy)"> -->
+    <!-- <date-picker [filterBy]="filterBy" (onFilter)="onFilter.emit(filterByCopy)"></date-picker> -->
+    <mat-form-field appearance="outline">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date" [(ngModel)]="filterByCopy.fromDate"
+                (ngModelChange)="onFilter.emit(filterByCopy)">
+            <input matEndDate placeholder="End date" [(ngModel)]="filterByCopy.toDate"
+                (ngModelChange)="onFilter.emit(filterByCopy)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <button mat-stroked-button (click)="resetDates()">Reset dates</button>
+</div>
+<mat-form-field appearance="outline">
+    <mat-label>Sort by</mat-label>
+    <mat-select [(ngModel)]="filterByCopy.sortBy" (ngModelChange)="onFilter.emit(filterByCopy)">
+        <mat-option value="fastest">Fastest first</mat-option>
+        <mat-option value="connections">Few stations first</mat-option>
+    </mat-select>
+</mat-form-field>

@@ -1,0 +1,5 @@
+<div class="flights-page">
+    <flight-filter [filterBy]="filterBy" (onFilter)="onSetFilter($event)"></flight-filter>
+    <!-- <flight-sort [sortBy]="sortBy" (onSort)="onSetSort($event)"></flight-sort> -->
+    <flight-list [flights]="flights$ | async"></flight-list>
+</div>

@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('flights-proj');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('flights-proj app is running!');
-  });
+  // it('should render title', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement;
+  //   expect(compiled.querySelector('.content span').textContent).toContain('flights-proj app is running!');
+  // });
 });

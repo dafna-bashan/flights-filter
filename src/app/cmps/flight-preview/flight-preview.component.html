@@ -1,0 +1,8 @@
+<div class="flight-preview">
+    <p>{{flight.origin}} - {{flight.destination}} | {{flight.price | currency:'USD'}}</p>
+    <!-- <p>{{getFormattedDate(flight.departure)}} - {{getFormattedDate(flight.landing)}}</p> -->
+    <p>{{flight.departure | date: 'short'}} - {{flight.landing | date: 'short'}}</p>
+    <p>Duration : {{(flight.landing - flight.departure) | duration}}</p>
+    <p *ngIf="flight.connections.length else nonStop">{{flight.connections.length-1}} stop(s)</p>
+    <ng-template #nonStop>Non-stop</ng-template>
+</div>
