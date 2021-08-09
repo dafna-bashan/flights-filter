@@ -1,8 +1,19 @@
 <div class="flight-preview">
-    <p>{{flight.origin}} - {{flight.destination}} | {{flight.price | currency:'USD'}}</p>
-    <!-- <p>{{getFormattedDate(flight.departure)}} - {{getFormattedDate(flight.landing)}}</p> -->
-    <p>{{flight.departure | date: 'short'}} - {{flight.landing | date: 'short'}}</p>
-    <p>Duration : {{(flight.landing - flight.departure) | duration}}</p>
-    <p *ngIf="flight.connections.length else nonStop">{{flight.connections.length-1}} stop(s)</p>
-    <ng-template #nonStop>Non-stop</ng-template>
+    <div class="flex space-between align-center">
+        <div>
+            <p class="title">{{flight.origin}}</p>
+            <p>{{flight.departure | date: 'short'}}</p>
+        </div>
+        <div class="duration">
+            <p>{{(flight.landing - flight.departure) | duration}}</p>
+                <p>----------------------- <i class="fas fa-plane"></i></p>
+                <p *ngIf="flight.connections.length else nonStop">{{flight.connections.length-1}} stop(s)</p>
+                <ng-template #nonStop>Non-stop</ng-template>
+        </div>
+            <div>
+                <p class="title">{{flight.destination}}</p>
+                <p>{{flight.landing | date: 'short'}}</p>
+            </div>
+        <div class="price">{{flight.price | currency:'USD'}}</div>
+    </div>
 </div>

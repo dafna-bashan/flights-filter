@@ -1,0 +1,31 @@
+.welcome {
+    padding-top: 100px;
+    text-align : center;
+
+    p {
+        font-size: 40px;
+        font-family: roboto-bold;
+        color: whitesmoke;
+    }
+    button{
+        background-color: whitesmoke;
+        color:  #042759f1;
+        font-size: 20px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        border: none;
+    }
+    .icon{
+        img{
+            opacity: .7;
+            width: 300px;
+        }
+    }
+    // .fa-plane-departure{
+    //     padding: 50px 0;
+    //     font-size: 200px;
+    //     &::after{
+    //         content: '\f5b0';
+    //     }
+    // }
+}
